@@ -1,0 +1,31 @@
+[project]
+name = "yolo-alpr"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13,<=3.13.8"
+dependencies = [
+    "paddleocr[all]==3.2.0",
+    "ultralytics==8.3.206",
+    "langchain<1.0.0",
+    "torch==2.9.0",
+]
+
+[dependency-groups]
+cuda = ["paddlepaddle-gpu==3.2.0"]
+cpu = ["paddlepaddle==3.2.0"]
+
+[[tool.uv.index]]
+name = "paddle-gpu"
+url = "https://www.paddlepaddle.org.cn/packages/stable/cu118/"
+explicit = true
+
+[[tool.uv.index]]
+name = "paddle-cpu"
+url = "https://www.paddlepaddle.org.cn/packages/stable/cpu/"
+explicit = true
+
+[tool.uv.sources]
+paddlepaddle-gpu = { index = "paddle-gpu" }
+paddlepaddle = { index = "paddle-cpu" }
+
